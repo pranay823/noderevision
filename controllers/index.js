@@ -8,7 +8,8 @@ if(!body.url){ res.json({status : "url is required"})}
 await Url.create({
     shorturl : shortno,
     RedirectedUrl : body.url,
-    visitedHistory : []
+    visitedHistory : [],
+    createdBy : req.user?._id
 })
 
  return res.render("home",{
